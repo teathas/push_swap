@@ -53,7 +53,7 @@ void sort_big_stack(t_stack **a, t_stack **b)
 	while (get_stack_len(*a))
 	{
 		pb(b, a, "pb\n");
-		if ((*a)->data >= middle_element)
+		if (*a != NULL && (*a)->data >= middle_element)
 			rb(b, "rb\n");
 	}
 	pa(a, b, "pa\n");
