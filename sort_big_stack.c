@@ -17,11 +17,6 @@ static void	move_b_to_a(t_stack **b, t_stack **a)
 	t_stack	*cheapest;
 
 	cheapest = get_cheapest(*b);
-	if (cheapest == NULL)
-	{
-		ft_putstr_fd("Error: Invalid target or cheapest node\n", 2);
-        return;
-	}
 	if (cheapest->is_in_first_half && cheapest->target->is_in_first_half)
 		rotate_both(a, b, cheapest);
 	else if (cheapest->is_in_first_half == 0
@@ -50,11 +45,15 @@ void sort_big_stack(t_stack **a, t_stack **b)
 	if (*a == NULL)
 		return;
 	middle_element = get_middle_element(*a);
-	while (get_stack_len(*a))
+	while (*a != NULL)
 	{
 		pb(b, a, "pb\n");
-		if (*a != NULL && (*a)->data >= middle_element)
-			rb(b, "rb\n");
+		if ((*a)->data >= middle_element)
+		{
+			if (*a != NULL)
+				rb(b, "rb\n");
+		}
+			
 	}
 	pa(a, b, "pa\n");
 	pa(a, b, "pa\n");
