@@ -12,11 +12,35 @@
 
 #include "push_swap.h"
 
+void print(t_stack *a, t_stack *b)
+{
+	t_stack *ca, *cb;
+
+	ca = a, cb = b;
+	while (ca || cb)
+	{
+		if (ca)
+			printf("%d | ", ca->data);
+		else if (ca == NULL)
+			printf("* | ");
+		if (cb)
+			printf("%d\n", cb->data);
+		else if (cb == NULL)
+			printf("*\n");
+		if (ca)
+			ca = ca->next;
+		if (cb)
+			cb = cb->next;
+	}
+}
+
 static void	move_b_to_a(t_stack **b, t_stack **a)
 {
 	t_stack	*cheapest;
 
 	cheapest = get_cheapest(*b);
+	// print(*a, *b);
+	// printf("cheapest : %d cheapest->target : %d\n", cheapest->data, cheapest->target->data);
 	if (cheapest->is_in_first_half && cheapest->target->is_in_first_half)
 		rotate_both(a, b, cheapest);
 	else if (cheapest->is_in_first_half == 0
@@ -48,12 +72,8 @@ void sort_big_stack(t_stack **a, t_stack **b)
 	while (*a != NULL)
 	{
 		pb(b, a, "pb\n");
-		if ((*a)->data >= middle_element)
-		{
-			if (*a != NULL)
-				rb(b, "rb\n");
-		}
-			
+		if (*a != NULL && (*a)->data >= middle_element)
+			rb(b, "rb\n");	
 	}
 	pa(a, b, "pa\n");
 	pa(a, b, "pa\n");
