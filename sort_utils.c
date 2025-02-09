@@ -20,7 +20,6 @@ t_stack	*get_cheapest(t_stack *s)
 	{
 		if (s->is_cheapest)
 			return (s);
-		printf("%d\n", s->data);
 		s = s->next;
 	}
 	return (NULL);
