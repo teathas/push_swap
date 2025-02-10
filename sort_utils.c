@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+
+
 t_stack	*get_cheapest(t_stack *s)
 {
 	if (s == NULL)
