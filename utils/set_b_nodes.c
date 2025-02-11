@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-
+#include "../push_swap.h"
 
 void	set_positions(t_stack *s)
 {
@@ -62,13 +60,6 @@ static void	set_b_targets(t_stack *b, t_stack *a)
 	}
 }
 
-int get_max_idx(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
 static void	set_cost(t_stack *b, t_stack *a)
 {
 	int	a_size;
@@ -82,9 +73,9 @@ static void	set_cost(t_stack *b, t_stack *a)
 		if (b->is_in_first_half == b->target->is_in_first_half)
 		{
 			if (b->is_in_first_half)
-				b->cost = get_max_idx(b->index, b->target->index);
+				b->cost = max_idx(b->index, b->target->index);
 			else
-				b->cost = get_max_idx(b_size - b->index, a_size - b->target->index);
+				b->cost = max_idx(b_size - b->index, a_size - b->target->index);
 		}
 		else
 		{
@@ -93,22 +84,6 @@ static void	set_cost(t_stack *b, t_stack *a)
 			else
 				b->cost = (b_size - b->index) + b->target->index;
 		}
-		// if (b->is_in_first_half == 0)
-		// 	b->cost = b_size - b->index;
-		// if (b->target->is_in_first_half)
-		// {
-		// 	if (b->index > b->target->index)
-		// 		b->cost = b->index;
-		// 	else
-		// 		b->cost = b->target->index;
-		// }
-		// else
-		// {
-		// 	if ((b_size - b->index) > (a_size - b->target->index))
-		// 		b->cost += b_size - b->index;
-		// 	else
-		// 		b->cost += a_size - b->target->index;
-		// }
 		b = b->next;
 	}
 }

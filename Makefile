@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Werror -Wextra -Wall -g
+CFLAGS = -Werror -Wextra -Wall
 
 RM = rm -rf
 
@@ -8,15 +8,17 @@ NAME = push_swap
 
 LIBFT = libft/libft.a
 
-FILES = op/push.c op/re_rotate.c op/rotate.c op/swap.c \
-          errors_checks.c fill_stack_a.c general_utils.c stack_utils.c sort_for_three.c sort.c \
-		  set_b_nodes.c sort_big_stack.c sort_utils.c get_middle_element.c
+FILES = operations/push.c operations/re_rotate.c operations/rotate.c operations/swap.c \
+ 		stack/errors_checks.c stack/fill_stack_a.c utils/general_utils.c utils/stack_utils.c \
+		utils/set_b_nodes.c  utils/sort_utils.c utils/get_middle_element.c \
+		sorting/sort_big_stack.c sorting/sort_for_three.c sorting/sort.c \
 
 SRC = push_swap.c
 
 OBJ = $(FILES:.c=.o) $(SRC:.c=.o)
 
-BSRC = checker/checker.c checker/execute_operation.c checker/get_next_line.c checker/get_next_line_utils.c
+BSRC = checker_bonus/checker_bonus.c checker_bonus/execute_operation.c checker_bonus/get_next_line.c \
+		checker_bonus/get_next_line_utils.c
 
 all: $(NAME)
 

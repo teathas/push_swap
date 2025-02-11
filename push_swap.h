@@ -56,12 +56,13 @@ void	set_b_nodes(t_stack *a, t_stack *b);
 t_stack	*get_cheapest(t_stack *s);
 void	set_positions(t_stack *s);
 void	prepare_for_push(t_stack **s, t_stack *top, char s_name);
-int	get_middle_element(t_stack *a);
+int		get_middle_element(t_stack *a);
 
 //general utils
 long	ft_atol(const char	*str);
 void	free_splited(char **splited);
 char	*join_args(char **arv, int arc);
+int		max_idx(int a, int b);
 
 //sorting
 void	sort_small_stack(t_stack **a, t_stack **b, int size);

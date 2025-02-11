@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	ft_atol(const char	*str)
 {
@@ -72,4 +72,11 @@ char	*join_args(char **arv, int arc)
 		i++;
 	}
 	return (joined_args);
+}
+
+int	max_idx(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }

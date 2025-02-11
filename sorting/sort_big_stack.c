@@ -10,37 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-// void print(t_stack *a, t_stack *b)
-// {
-// 	t_stack *ca, *cb;
-
-// 	ca = a, cb = b;
-// 	while (ca || cb)
-// 	{
-// 		if (ca)
-// 			printf("%d | ", ca->data);
-// 		else if (ca == NULL)
-// 			printf("* | ");
-// 		if (cb)
-// 			printf("%d\n", cb->data);
-// 		else if (cb == NULL)
-// 			printf("*\n");
-// 		if (ca)
-// 			ca = ca->next;
-// 		if (cb)
-// 			cb = cb->next;
-// 	}
-// }
+#include "../push_swap.h"
 
 static void	move_b_to_a(t_stack **b, t_stack **a)
 {
 	t_stack	*cheapest;
 
 	cheapest = get_cheapest(*b);
-	// print(*a, *b);
-	// printf("cheapest : %d cheapest->target : %d\n", cheapest->data, cheapest->target->data);
 	if (cheapest->is_in_first_half && cheapest->target->is_in_first_half)
 		rotate_both(a, b, cheapest);
 	else if (cheapest->is_in_first_half == 0
@@ -62,51 +38,24 @@ static void	get_min_to_top(t_stack **a)
 	}
 }
 
-void print(t_stack *a, t_stack *b)
+void	sort_big_stack(t_stack **a, t_stack **b)
 {
-	t_stack *ca, *cb;
-
-	ca = a, cb = b;
-	while (ca || cb)
-	{
-		if (ca)
-			printf("%d | ", ca->data);
-		else if (ca == NULL)
-			printf("* | ");
-		if (cb)
-			printf("%d[%d] {%d}\n", cb->data, cb->cost, cb->is_cheapest);
-		else if (cb == NULL)
-			printf("*\n");
-		if (ca)
-			ca = ca->next;
-		if (cb)
-			cb = cb->next;
-	}
-}
-
-void sort_big_stack(t_stack **a, t_stack **b)
-{
-	int middle_element;
+	int	middle_element;
 
 	if (*a == NULL)
-		return;
+		return ;
 	middle_element = get_middle_element(*a);
 	while (*a != NULL)
 	{
-		// print(*a, *b);
 		pb(b, a, "pb\n");
 		if (*a != NULL && (*b)->data >= middle_element)
-			rb(b, "rb\n");	
+			rb(b, "rb\n");
 	}
 	pa(a, b, "pa\n");
 	pa(a, b, "pa\n");
-	// t_stack *ch;
 	while (*b != NULL)
 	{
 		set_b_nodes(*b, *a);
-		// ch = get_cheapest(*b);
-		// printf("%d[%d] -> %d[%d] {[%d]} |%d|%d|\n", ch->data, ch->index, ch->target->data, ch->target->index, ch->cost, ch->is_in_first_half, ch->target->is_in_first_half);
-		// print(*a, *b);
 		move_b_to_a(b, a);
 	}
 	set_positions(*a);

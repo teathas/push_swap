@@ -1,10 +1,10 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	*copy_stack(t_stack *a)
 {
 	t_stack	*curr;
-	int	*ret;
-	int	i;
+	int		*ret;
+	int		i;
 
 	ret = malloc(get_stack_len(a) * sizeof(int));
 	if (ret == NULL)
@@ -27,17 +27,18 @@ static void	insertion_sort(int *arr, int size)
 	int	tmp;
 
 	i = 1;
-    while (i < size)
+	while (i < size)
 	{
-        tmp = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > tmp) {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = tmp;
+		tmp = arr[i];
+		j = i - 1;
+		while (j >= 0 && arr[j] > tmp)
+		{
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = tmp;
 		i++;
-    }
+	}
 }
 
 int	get_middle_element(t_stack *a)
