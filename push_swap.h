@@ -57,6 +57,7 @@ t_stack	*get_cheapest(t_stack *s);
 void	set_positions(t_stack *s);
 void	prepare_for_push(t_stack **s, t_stack *top, char s_name);
 int		get_middle_element(t_stack *a);
+void	get_min_to_top(t_stack **a);
 
 //general utils
 long	ft_atol(const char	*str);
@@ -69,6 +70,7 @@ void	sort_small_stack(t_stack **a, t_stack **b, int size);
 void	sort_big_stack(t_stack **a, t_stack **b);
 void	sort_for_three(t_stack **s);
 void	sort(t_stack **a, t_stack **b);
+void	sort_short(t_stack **a, t_stack **b);
 
 //errors handling
 int		duplicate_check(t_stack *a, int n);

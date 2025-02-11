@@ -25,6 +25,17 @@ t_stack	*get_cheapest(t_stack *s)
 	return (NULL);
 }
 
+void	get_min_to_top(t_stack **a)
+{
+	while ((*a)->data != get_min(*a)->data)
+	{
+		if (get_min(*a)->is_in_first_half)
+			ra(a, "ra\n");
+		else
+			rra(a, "rra\n");
+	}
+}
+
 void	prepare_for_push(t_stack **s, t_stack *top, char s_name)
 {
 	while (*s != top)

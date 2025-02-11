@@ -27,17 +27,6 @@ static void	move_b_to_a(t_stack **b, t_stack **a)
 	pa(a, b, "pa\n");
 }
 
-static void	get_min_to_top(t_stack **a)
-{
-	while ((*a)->data != get_min(*a)->data)
-	{
-		if (get_min(*a)->is_in_first_half)
-			ra(a, "ra\n");
-		else
-			rra(a, "rra\n");
-	}
-}
-
 void	sort_big_stack(t_stack **a, t_stack **b)
 {
 	int	middle_element;

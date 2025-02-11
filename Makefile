@@ -11,7 +11,7 @@ LIBFT = libft/libft.a
 FILES = operations/push.c operations/re_rotate.c operations/rotate.c operations/swap.c \
  		stack/errors_checks.c stack/fill_stack_a.c utils/general_utils.c utils/stack_utils.c \
 		utils/set_b_nodes.c  utils/sort_utils.c utils/get_middle_element.c \
-		sorting/sort_big_stack.c sorting/sort_for_three.c sorting/sort.c \
+		sorting/sort_big_stack.c sorting/sort_short.c sorting/sort.c \
 
 SRC = push_swap.c
 

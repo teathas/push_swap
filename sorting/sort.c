@@ -20,6 +20,8 @@ void	sort(t_stack **a, t_stack **b)
 		sa(a, "sa\n");
 	else if (get_stack_len(*a) == 3)
 		sort_for_three(a);
+	else if (get_stack_len(*a) > 3 && get_stack_len(*a) <= 5)
+		sort_short(a, b);
 	else
 		sort_big_stack(a, b);
 }

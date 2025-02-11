@@ -24,3 +24,15 @@ void	sort_for_three(t_stack **s)
 	if ((*s)->data > (*s)->next->data)
 		sa(s, "sa\n");
 }
+
+void	sort_short(t_stack **a, t_stack **b)
+{
+	while (get_stack_len(*a) > 3)
+	{
+		get_min_to_top(a);
+		pb(b, a, "pb\n");
+	}
+	sort_for_three(a);
+	while (*b != NULL)
+		pa(a, b, "pa\n");
+}
