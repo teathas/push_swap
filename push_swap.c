@@ -21,21 +21,22 @@ int	main(int arc, char *arv[])
 
 	a = NULL;
 	b = NULL;
-	if (arc < 2 || (arc == 2 && arv[1][0] == '\0'))
-		return (0);
-	joined_args = join_args(arv, arc);
-	if (is_only_white_space(joined_args))
+	if (arc > 1)
 	{
-		ft_putstr_fd("Error\n", 2);
+		joined_args = join_args(arv, arc);
+		if (is_only_white_space(joined_args))
+		{
+			ft_putstr_fd("Error\n", 2);
+			free(joined_args);
+			return (-1);
+		}
+		splited_args = ft_split(joined_args, ' ');
 		free(joined_args);
-		return (-1);
+		fill_stack_a(&a, splited_args);
+		free_splited(splited_args);
+		if (!is_sorted(a))
+			sort(&a, &b);
+		clean_stack(&a);
 	}
-	splited_args = ft_split(joined_args, ' ');
-	free(joined_args);
-	fill_stack_a(&a, splited_args);
-	free_splited(splited_args);
-	if (!is_sorted(a))
-		sort(&a, &b);
-	clean_stack(&a);
 	return (0);
 }
