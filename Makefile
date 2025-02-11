@@ -17,15 +17,17 @@ SRC = push_swap.c
 
 OBJ = $(FILES:.c=.o) $(SRC:.c=.o)
 
-BSRC = checker_bonus/checker_bonus.c checker_bonus/execute_operation.c checker_bonus/get_next_line.c \
+BSRC = checker_bonus/checker_bonus.c checker_bonus/execute_operation_bonus.c checker_bonus/get_next_line.c \
 		checker_bonus/get_next_line_utils.c
+
+BOBJ = $(FILES:.c=.o) $(BSRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(SRC) $(FILES) $(LIBFT) -o $(NAME)
 
-bonus:
+bonus: $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(BSRC) $(FILES) $(LIBFT) -o checker_bin
 
 $(LIBFT) :

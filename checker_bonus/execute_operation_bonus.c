@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static void	ex_swap(char *operation, t_stack **a, t_stack **b)
 {
