@@ -28,7 +28,7 @@ $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(SRC) $(FILES) $(LIBFT) -o $(NAME)
 
 bonus: $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(BSRC) $(FILES) $(LIBFT) -o checker_bin
+	$(CC) $(CFLAGS) $(BSRC) $(FILES) $(LIBFT) -o checker
 
 $(LIBFT) :
 	make -C libft
@@ -40,7 +40,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) checker_bin
+	$(RM) checker
 	make fclean -C libft
 
 re: fclean all
