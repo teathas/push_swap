@@ -12,6 +12,20 @@
 
 #include "../push_swap.h"
 
+int	is_only_white_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != ' ' && str[i] != '\t')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	syntax_check(char *str)
 {
 	int	i;

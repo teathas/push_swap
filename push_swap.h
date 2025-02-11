@@ -77,5 +77,6 @@ int		duplicate_check(t_stack *a, int n);
 int		syntax_check(char *str);
 void	clean_stack(t_stack **s);
 void	free_and_exit(t_stack **s);
+int		is_only_white_space(char *str);
 
 #endif
