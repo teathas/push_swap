@@ -24,6 +24,11 @@ int	main(int arc, char *arv[])
 	if (arc > 1)
 	{
 		joined_args = join_args(arv, arc);
+		if (joined_args == NULL)
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(-1);
+		}
 		splited_args = ft_split(joined_args, ' ');
 		free(joined_args);
 		fill_stack_a(&a, splited_args);

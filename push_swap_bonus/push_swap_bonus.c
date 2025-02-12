@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "push_swap_bonus.h"
 
 static void	checker(t_stack *a)
 {

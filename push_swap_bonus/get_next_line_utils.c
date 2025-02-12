@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "push_swap_bonus.h"
 
 int	ft_strlen_gnl(const char *s)
 {

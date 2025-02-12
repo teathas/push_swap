@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
