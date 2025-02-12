@@ -56,13 +56,18 @@ char	*join_args(char **arv, int arc)
 	char	*joined_args;
 	int		i;
 
+	if (is_only_white_space(arv[1]))
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
 	joined_args = ft_strjoin("", arv[1]);
 	i = 2;
 	while (i < arc)
 	{
-		if (arv[i][0] == '\0')
+		if (arv[i][0] == '\0' || is_only_white_space(arv[i]))
 		{
-			ft_putstr_fd("ERROR\n", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 		tmp = ft_strjoin(joined_args, " ");
