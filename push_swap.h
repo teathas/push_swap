@@ -60,7 +60,7 @@ int		get_middle_element(t_stack *a);
 void	get_min_to_top(t_stack **a);
 
 //general utils
-long	ft_atol(const char	*str);
+long	ft_atol(const char	*str, t_stack **a, char **args);
 void	free_splited(char **splited);
 char	*join_args(char **arv, int arc);
 int		max_idx(int a, int b);
@@ -76,7 +76,7 @@ void	sort_short(t_stack **a, t_stack **b);
 int		duplicate_check(t_stack *a, int n);
 int		syntax_check(char *str);
 void	clean_stack(t_stack **s);
-void	free_and_exit(t_stack **s);
+void	free_and_exit(t_stack **s, char **args);
 int		is_only_white_space(char *str);
 
 #endif

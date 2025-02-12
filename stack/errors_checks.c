@@ -72,9 +72,10 @@ void	clean_stack(t_stack **s)
 	*s = NULL;
 }
 
-void	free_and_exit(t_stack **s)
+void	free_and_exit(t_stack **s, char **args)
 {
 	clean_stack(s);
+	free_splited(args);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

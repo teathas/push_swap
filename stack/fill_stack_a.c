@@ -49,12 +49,12 @@ void	fill_stack_a(t_stack **a, char **args)
 	while (args[i] != NULL)
 	{
 		if (syntax_check(args[i]))
-			free_and_exit(a);
-		n = ft_atol(args[i]);
+			free_and_exit(a, args);
+		n = ft_atol(args[i], a, args);
 		if (n < INT_MIN || n > INT_MAX)
-			free_and_exit(a);
+			free_and_exit(a, args);
 		if (duplicate_check(*a, (int)n))
-			free_and_exit(a);
+			free_and_exit(a, args);
 		append_node(a, (int)n);
 		i++;
 	}
