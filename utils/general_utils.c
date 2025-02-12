@@ -68,8 +68,8 @@ char	*join_args(char **arv, int arc)
 	{
 		if (arv[i][0] == '\0' || is_only_white_space(arv[i]))
 		{
-				free(joined_args);
-				return (NULL);
+			free(joined_args);
+			return (NULL);
 		}
 		tmp = ft_strjoin(joined_args, " ");
 		free(joined_args);

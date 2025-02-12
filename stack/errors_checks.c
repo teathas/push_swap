@@ -26,24 +26,6 @@ int	is_only_white_space(char *str)
 	return (1);
 }
 
-int	syntax_check(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	if (str[i] == '\0')
-		return (1);
-	while (str[i] != '\0')
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 int	duplicate_check(t_stack *a, int n)
 {
 	while (a != NULL)
