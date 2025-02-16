@@ -29,7 +29,7 @@ $(NAME): $(OBJ) $(LIBFT)
 
 bonus: checker
 
-checker : $(OBJ) $(LIBFT)
+checker : $(BOBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(BSRC) $(FILES) $(LIBFT) -o checker
 
 $(LIBFT) :
@@ -37,6 +37,7 @@ $(LIBFT) :
 
 clean:
 	$(RM) $(OBJ)
+	$(RM) $(BOBJ)
 	make clean -C libft
 
 fclean: clean
