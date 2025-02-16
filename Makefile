@@ -27,12 +27,13 @@ all: $(NAME)
 $(NAME): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(SRC) $(FILES) $(LIBFT) -o $(NAME)
 
-bonus: $(OBJ) $(LIBFT)
+bonus: checker
+
+checker : $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(BSRC) $(FILES) $(LIBFT) -o checker
 
 $(LIBFT) :
 	make -C libft
-
 
 clean:
 	$(RM) $(OBJ)
@@ -45,4 +46,4 @@ fclean: clean
 
 re: fclean all
 
-.SECONDARY: $(OBJ)
+.SECONDARY: $(OBJ) $(BOBJ)
