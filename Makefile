@@ -18,7 +18,7 @@ SRC = push_swap.c
 OBJ = $(FILES:.c=.o) $(SRC:.c=.o)
 
 BSRC = push_swap_bonus/push_swap_bonus.c push_swap_bonus/execute_operation_bonus.c push_swap_bonus/get_next_line.c \
-		push_swap_bonus/get_next_line_utils.c
+		push_swap_bonus/get_next_line_utils.c push_swap_bonus/read_operations_bonus.c
 
 BOBJ = $(FILES:.c=.o) $(BSRC:.c=.o)
 

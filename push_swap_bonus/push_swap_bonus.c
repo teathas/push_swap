@@ -20,46 +20,11 @@ static void	checker(t_stack *a)
 		write(1, "KO\n", 3);
 }
 
-static int	is_valid_operation(char *operation)
-{
-	char	*operations[11];
-	int		i;
-
-	operations[0] = "pa\n";
-	operations[1] = "pb\n";
-	operations[2] = "sa\n";
-	operations[3] = "sb\n";
-	operations[4] = "ss\n";
-	operations[5] = "ra\n";
-	operations[6] = "rb\n";
-	operations[7] = "rr\n";
-	operations[8] = "rra\n";
-	operations[9] = "rrb\n";
-	operations[10] = "rrr\n";
-	i = 0;
-	while (i < 11)
-	{
-		if (ft_strcmp(operation, operations[i]) == 0)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-static void	operation_not_valid(char **op, t_stack **a, t_stack **b)
-{
-	clean_stack(a);
-	clean_stack(b);
-	free(*op);
-	ft_putstr_fd("Error\n", 2);
-	exit(-1);
-}
-
 int	main(int arc, char **arv)
 {
 	t_stack		*a;
 	t_stack		*b;
-	char		*operation;
+	char		*operations;
 	char		*joined_args;
 	char		**splited_args;
 
@@ -72,15 +37,9 @@ int	main(int arc, char **arv)
 		free(joined_args);
 		fill_stack_a(&a, splited_args);
 		free_splited(splited_args);
-		operation = get_next_line(0);
-		while (operation)
-		{
-			if (!is_valid_operation(operation))
-				operation_not_valid(&operation, &a, &b);
-			execute_operation(operation, &a, &b);
-			free(operation);
-			operation = get_next_line(0);
-		}
+		operations =  read_operations(&a);
+		if (operations != NULL)
+			execute_operations(&a, &b, operations);
 		checker(a);
 		clean_stack(&a);
 	}

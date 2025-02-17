@@ -28,5 +28,7 @@ char	*ft_strjoin_gnl(char *s1, char const *s2);
 int		ft_strlen_gnl(const char *s);
 char	*ft_strdup_gnl(const char *s);
 char	*str_append(char *dst, const char *s1, const char *s2);
+char	*read_operations(t_stack **a);
+void    execute_operations(t_stack **a, t_stack **b, char *op);
 void	execute_operation(char *op, t_stack **a, t_stack **b);
 #endif
