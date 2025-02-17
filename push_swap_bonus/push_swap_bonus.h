@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberkass <aberkass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:27:10 by aberkass          #+#    #+#             */
-/*   Updated: 2025/01/28 20:27:12 by aberkass         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:37:19 by aberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		ft_strlen_gnl(const char *s);
 char	*ft_strdup_gnl(const char *s);
 char	*str_append(char *dst, const char *s1, const char *s2);
 char	*read_operations(t_stack **a);
-void    execute_operations(t_stack **a, t_stack **b, char *op);
+void	execute_operations(t_stack **a, t_stack **b, char *op);
 void	execute_operation(char *op, t_stack **a, t_stack **b);
 #endif

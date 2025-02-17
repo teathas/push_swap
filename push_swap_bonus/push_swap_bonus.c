@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberkass <aberkass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:26:55 by aberkass          #+#    #+#             */
-/*   Updated: 2025/02/02 16:43:18 by aberkass         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:36:50 by aberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int arc, char **arv)
 		free(joined_args);
 		fill_stack_a(&a, splited_args);
 		free_splited(splited_args);
-		operations =  read_operations(&a);
+		operations = read_operations(&a);
 		if (operations != NULL)
 			execute_operations(&a, &b, operations);
 		checker(a);

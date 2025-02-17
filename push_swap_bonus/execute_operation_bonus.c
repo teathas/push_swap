@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_operation.c                                :+:      :+:    :+:   */
+/*   execute_operation_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberkass <aberkass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:27:03 by aberkass          #+#    #+#             */
-/*   Updated: 2025/01/28 20:27:05 by aberkass         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:36:24 by aberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static void	ex_re_rotate(char *operation, t_stack **a, t_stack **b)
 
 void	execute_operation(char *op, t_stack **a, t_stack **b)
 {
-		ex_swap(op, a, b);
-		ex_push(op, a, b);
-		ex_rotate(op, a, b);
-		ex_re_rotate(op, a, b);
+	ex_swap(op, a, b);
+	ex_push(op, a, b);
+	ex_rotate(op, a, b);
+	ex_re_rotate(op, a, b);
 }

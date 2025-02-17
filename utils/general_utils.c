@@ -15,28 +15,27 @@
 long	ft_atol(const char	*str, t_stack **a, char **args)
 {
 	int				sign;
-	int				i;
 	long			res;
 
 	sign = 1;
-	i = 0;
 	res = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str++ == '-')
 			sign = -1;
-		i++;
 	}
-	if (str[i] == '\0')
+	if (*str == '\0')
 		free_and_exit(a, args);
-	while (ft_isdigit(str[i]))
+	while (ft_isdigit(*str))
 	{
-		res = res * 10 + (str[i] - '0');
-		i++;
+		res = res * 10 + (*str - '0');
+		if (res < INT_MIN || res > INT_MAX)
+			free_and_exit(a, args);
+		str++;
 	}
-	if (str[i] != '\0' && (str[i] < '0' || str[i] > '9'))
+	if (*str != '\0' && (*str < '0' || *str > '9'))
 		free_and_exit(a, args);
 	return (res * sign);
 }
