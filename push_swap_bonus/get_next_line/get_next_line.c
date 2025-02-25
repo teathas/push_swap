@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
+#include "./../push_swap_bonus.h"
 
 char	*ft_get_line(char *str)
 {

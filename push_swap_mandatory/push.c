@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   re_rotate.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberkass <aberkass@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 20:26:05 by aberkass          #+#    #+#             */
-/*   Updated: 2025/01/16 20:26:07 by aberkass         ###   ########.fr       */
+/*   Created: 2025/01/16 20:25:52 by aberkass          #+#    #+#             */
+/*   Updated: 2025/01/16 20:25:55 by aberkass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-static void	re_rotate(t_stack **s)
+static void	push(t_stack **dst, t_stack **src)
 {
-	t_stack	*last;
+	t_stack	*topush;
 
-	if (*s == NULL || (*s)->next == NULL)
+	if (*src == NULL)
 		return ;
-	last = getlast(*s);
-	last->prev->next = NULL;
-	last->next = *s;
-	(*s)->prev = last;
-	*s = last;
+	topush = *src;
+	*src = (*src)->next;
+	topush->prev = NULL;
+	if (*dst == NULL)
+	{
+		topush->next = NULL;
+		*dst = topush;
+	}
+	else
+	{
+		topush->next = *dst;
+		topush->next->prev = topush;
+		*dst = topush;
+	}
 }
 
-void	rra(t_stack **a, char *op)
+void	pa(t_stack **a, t_stack **b, char *op)
 {
-	re_rotate(a);
+	push(a, b);
 	ft_putstr_fd(op, 1);
 }
 
-void	rrb(t_stack **b, char *op)
+void	pb(t_stack **b, t_stack **a, char *op)
 {
-	re_rotate(b);
-	ft_putstr_fd(op, 1);
-}
-
-void	rrr(t_stack **a, t_stack **b, char *op)
-{
-	re_rotate(a);
-	re_rotate(b);
+	push(b, a);
 	ft_putstr_fd(op, 1);
 }

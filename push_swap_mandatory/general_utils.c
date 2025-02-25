@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 long	ft_atol(const char	*str, t_stack **a, char **args)
 {
@@ -19,7 +19,7 @@ long	ft_atol(const char	*str, t_stack **a, char **args)
 
 	sign = 1;
 	res = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
+	while (*str && *str == 32)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -31,7 +31,7 @@ long	ft_atol(const char	*str, t_stack **a, char **args)
 	while (ft_isdigit(*str))
 	{
 		res = res * 10 + (*str - '0');
-		if (res < INT_MIN || res > INT_MAX)
+		if (res * sign < INT_MIN || res * sign > INT_MAX)
 			free_and_exit(a, args);
 		str++;
 	}
